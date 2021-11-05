@@ -1,0 +1,45 @@
+.tableContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  border-bottom: 1pt solid #059862;
+  color: #059862;
+}
+tr {
+  line-height: 30px;
+}
+tr:hover td {
+  background: #d9eee1;
+}
+th,
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.deleteButton {
+  margin-left: 5px;
+  width: 6rem;
+  background: #b9152b;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  height: 1.8rem;
+}
+
+.editButton {
+  margin-left: 5px;
+  width: 6rem;
+  background: #059862;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  height: 1.8rem;
+}
