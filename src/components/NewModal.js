@@ -7,8 +7,9 @@ import "./NewModal.css";
 
 const NewModal = ({ isOpen, onCloseModal, isEdit, isAdd }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.user);
+  const currentUser = useSelector((state) => state.user.user); // user to be edited, otherwise null
   const users = useSelector((state) => state.user.users);
+  // get initial content for modal based on add or edit modal
   const [username, setUsername] = useState(
     currentUser ? currentUser.username : ""
   );
@@ -28,6 +29,7 @@ const NewModal = ({ isOpen, onCloseModal, isEdit, isAdd }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // edit modal
     if (isEdit && !isAdd) {
       for (let user of users) {
         if (user.id === currentUser.id) {
@@ -42,7 +44,7 @@ const NewModal = ({ isOpen, onCloseModal, isEdit, isAdd }) => {
       dispatch(editUser(users));
       onCloseModal();
     }
-
+    // add modal
     if (!isEdit && isAdd) {
       let newUser = {
         username: username,
@@ -55,6 +57,7 @@ const NewModal = ({ isOpen, onCloseModal, isEdit, isAdd }) => {
         email: email,
         id: uuidv4(),
       };
+      // clean modal contents
       dispatch(addUser(users, newUser));
       setUsername("");
       setFirstName("");

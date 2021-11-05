@@ -7,15 +7,15 @@ import "./TableContainer.css";
 const TableContainer = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.users);
-  const currentUser = useSelector((state) => state.user.user);
-  const [inEdit, setInEdit] = useState(false);
+  const currentUser = useSelector((state) => state.user.user); // get user to be edited, otherwise null
+  const [inEdit, setInEdit] = useState(false); // control edit modal
   const editUser = (user) => {
     setInEdit(true);
     dispatch(getUser(user));
   };
   const handleClose = () => {
     setInEdit(false);
-    dispatch(cancelUser());
+    dispatch(cancelUser()); // cancel user to be edited
   };
 
   return (

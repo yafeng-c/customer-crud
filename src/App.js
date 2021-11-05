@@ -7,14 +7,15 @@ import AddUserContainer from "./containers/AddUserContainer";
 
 function App() {
   const dispatch = useDispatch();
-  const [inAdd, setInAdd] = useState(false);
+  const [inAdd, setInAdd] = useState(false); //controal add user modal
   useEffect(() => {
     dispatch(getAllUsers());
   }, []);
-  const users = useSelector((state) => state.user.users);
+  const users = useSelector((state) => state.user.users); // get all users
   const handleAddUser = () => {
     setInAdd(true);
   };
+  // close modal
   const handleClose = () => {
     setInAdd(false);
   };
