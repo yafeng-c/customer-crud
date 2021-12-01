@@ -90,36 +90,42 @@ const NewModal = ({ isOpen, onCloseModal, isEdit, isAdd }) => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <label>First Name</label>
           <input
             type="text"
             value={first_name}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
           <label>Last Name</label>
           <input
             type="text"
             value={last_name}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
           <label>Credit Card Number</label>
           <input
             type="text"
             value={cc_number}
             onChange={(e) => setCc_number(e.target.value)}
+            required
           />
           <label>Phone number</label>
           <input
             type="text"
             value={phone_number}
             onChange={(e) => setPhone(e.target.value)}
+            required
           />
           <label>Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <button type="submit">Submit</button>
         </form>
