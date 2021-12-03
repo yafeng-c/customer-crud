@@ -7,38 +7,36 @@ import "./NewModal.css";
 
 const NewModal = ({ isOpen, onCloseModal, isEdit, isAdd }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.user); // user to be edited, otherwise null
+  const user2edit = useSelector((state) => state.user.user2edit); // user to be edited, otherwise null
   const users = useSelector((state) => state.user.users);
   // get initial content for modal based on add or edit modal
-  const [username, setUsername] = useState(
-    currentUser ? currentUser.username : ""
-  );
+  const [username, setUsername] = useState(user2edit ? user2edit.username : "");
   const [first_name, setFirstName] = useState(
-    currentUser ? currentUser.first_name : ""
+    user2edit ? user2edit.first_name : ""
   );
   const [last_name, setLastName] = useState(
-    currentUser ? currentUser.last_name : ""
+    user2edit ? user2edit.last_name : ""
   );
   const [cc_number, setCc_number] = useState(
-    currentUser ? currentUser.credit_card.cc_number : ""
+    user2edit ? user2edit.credit_card.cc_number : ""
   );
   const [phone_number, setPhone] = useState(
-    currentUser ? currentUser.phone_number : ""
+    user2edit ? user2edit.phone_number : ""
   );
-  const [email, setEmail] = useState(currentUser ? currentUser.email : "");
+  const [email, setEmail] = useState(user2edit ? user2edit.email : "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // edit modal
     if (isEdit && !isAdd) {
-      for (let user of users) {
-        if (user.id === currentUser.id) {
-          user.username = username;
-          user.first_name = first_name;
-          user.last_name = last_name;
-          user.credit_card.cc_number = cc_number;
-          user.phone_number = phone_number;
-          user.email = email;
+      for (let u of users) {
+        if (u.id === user2edit.id) {
+          u.username = username;
+          u.first_name = first_name;
+          u.last_name = last_name;
+          u.credit_card.cc_number = cc_number;
+          u.phone_number = phone_number;
+          u.email = email;
         }
       }
       dispatch(editUser(users));

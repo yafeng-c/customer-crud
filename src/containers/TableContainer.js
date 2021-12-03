@@ -7,7 +7,7 @@ import "./TableContainer.css";
 const TableContainer = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.users);
-  const currentUser = useSelector((state) => state.user.user); // get user to be edited, otherwise null
+  const user2edit = useSelector((state) => state.user.user2edit); // get user to be edited, otherwise null
   const [inEdit, setInEdit] = useState(false); // control edit modal
   const editUser = (user) => {
     setInEdit(true);
@@ -61,7 +61,7 @@ const TableContainer = () => {
             : null}
         </tbody>
       </table>
-      {currentUser && (
+      {user2edit && (
         <EditUserContainer isOpen={inEdit} onCloseModal={handleClose} />
       )}
     </div>

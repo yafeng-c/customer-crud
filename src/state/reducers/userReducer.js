@@ -1,7 +1,7 @@
 const initState = {
   users: [],
   err: null,
-  user: null,
+  user2edit: null,
 };
 
 export default (state = initState, action) => {
@@ -33,13 +33,13 @@ export default (state = initState, action) => {
     case "GET_USER":
       state = {
         ...state,
-        user: action.payload,
+        user2edit: action.payload,
       };
       break;
     case "CANCEL_USER":
       state = {
         ...state,
-        user: null,
+        user2edit: null,
       };
       break;
     default:

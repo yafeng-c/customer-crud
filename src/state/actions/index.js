@@ -20,46 +20,26 @@ export const getAllUsers = () => {
   };
 };
 
-export const deleteUser = (users, id) => {
-  return (dispatch) => {
-    dispatch({
-      type: "DELETE_USER",
-      payload: users.filter((user) => user.id !== id),
-    });
-  };
-};
+export const deleteUser = (users, id) => ({
+  type: "DELETE_USER",
+  payload: users.filter((user) => user.id !== id),
+});
 
-export const getUser = (user) => {
-  return (dispatch) => {
-    dispatch({
-      type: "GET_USER",
-      payload: user,
-    });
-  };
-};
+export const getUser = (user2edit) => ({
+  type: "GET_USER",
+  payload: user2edit,
+});
 
-export const cancelUser = () => {
-  return (dispatch) => {
-    dispatch({
-      type: "CANCEL_USER",
-    });
-  };
-};
+export const cancelUser = () => ({
+  type: "CANCEL_USER",
+});
 
-export const editUser = (users) => {
-  return (dispatch) => {
-    dispatch({
-      type: "ADD_USER",
-      payload: users,
-    });
-  };
-};
+export const editUser = (users) => ({
+  type: "ADD_USER",
+  payload: users,
+});
 
-export const addUser = (users, user) => {
-  return (dispatch) => {
-    dispatch({
-      type: "ADD_USER",
-      payload: [...users, user],
-    });
-  };
-};
+export const addUser = (users, user) => ({
+  type: "ADD_USER",
+  payload: [...users, user],
+});

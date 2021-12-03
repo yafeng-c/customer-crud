@@ -1,5 +1,4 @@
 import NewModal from "../components/NewModal";
-import { useSelector } from "react-redux";
 
 const AddUserContainer = ({ isOpen, onCloseModal }) => {
   return (
